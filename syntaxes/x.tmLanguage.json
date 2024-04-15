@@ -30,7 +30,7 @@
             "patterns": [
                 {
                     "name": "keyword.control.x",
-                    "match": "\\b(if|match|while|for|break|continue|return|throw)\\b"
+                    "match": "\\b(if|then|else|match|while|for|break|continue|return|throw)\\b"
                 },
                 {
                     "name": "storage.type.x",
@@ -42,19 +42,27 @@
                 },
                 {
                     "name": "storage.modifier.x",
-                    "match": "\\b(public|private|static|const)\\b"
+                    "match": "\\b(public|private|static|const|partial)\\b"
                 },
                 {
                     "name": "keyword.operator.x",
                     "match": "\\b(as|is|in|shl|shl_eq|shr|shr_eq|cmp)\\b"
                 },
                 {
+                    "name": "keyword.operator.x",
+                    "match": "->|=>"
+                },
+                {
                     "name": "variable.language.x",
                     "match": "\\b(this)\\b"
                 },
                 {
+                    "name": "storage.type.function.x",
+                    "match": "\\b(init|deinit|get|set|willSet|didSet)\\b"
+                },
+                {
                     "name": "keyword.other.x",
-                    "match": "\\b(let|operator|__[a-z]+)\\b"
+                    "match": "\\b(let|operator|import|__[a-z]+)\\b"
                 }
             ]
         },
