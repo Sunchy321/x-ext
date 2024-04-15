@@ -1,32 +1,128 @@
 {
-	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-	"name": "X",
-	"patterns": [
-		{
-			"include": "#keywords"
-		},
-		{
-			"include": "#strings"
-		}
-	],
-	"repository": {
-		"keywords": {
-			"patterns": [{
-				"name": "keyword.control.x",
-				"match": "\\b(if|while|for|return)\\b"
-			}]
-		},
-		"strings": {
-			"name": "string.quoted.double.x",
-			"begin": "\"",
-			"end": "\"",
-			"patterns": [
-				{
-					"name": "constant.character.escape.x",
-					"match": "\\\\."
-				}
-			]
-		}
-	},
-	"scopeName": "source.x"
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name": "X",
+    "patterns": [
+        {
+            "include": "#comments"
+        },
+        {
+            "include": "#keywords"
+        },
+        {
+            "include": "#constants"
+        }
+    ],
+    "repository": {
+        "comments": {
+            "patterns": [
+                {
+                    "name": "comment.line.x",
+                    "match": "//.*$"
+                },
+                {
+                    "name": "comment.block.x",
+                    "begin": "/\\*",
+                    "end": "\\*/"
+                }
+            ]
+        },
+        "keywords": {
+            "patterns": [
+                {
+                    "name": "keyword.control.x",
+                    "match": "\\b(if|match|while|for|break|continue|return|throw)\\b"
+                },
+                {
+                    "name": "storage.type.x",
+                    "match": "\\b(void|never|bool|int|uint|float|string|symbol|self)\\b"
+                },
+                {
+                    "name": "storage.type.x",
+                    "match": "\\b(func|type|class|enum|trait|impl)\\b"
+                },
+                {
+                    "name": "storage.modifier.x",
+                    "match": "\\b(public|private|static|const)\\b"
+                },
+                {
+                    "name": "keyword.operator.x",
+                    "match": "\\b(as|is|in|shl|shl_eq|shr|shr_eq|cmp)\\b"
+                },
+                {
+                    "name": "variable.language.x",
+                    "match": "\\b(this)\\b"
+                },
+                {
+                    "name": "keyword.other.x",
+                    "match": "\\b(let|operator|__[a-z]+)\\b"
+                }
+            ]
+        },
+        "constants": {
+            "patterns": [
+                {
+                    "name": "constant.language.x",
+                    "match": "\\b(true|false|nil)\\b"
+                },
+                {
+                    "comment": "decimal floating literals",
+                    "name": "constant.numeric.x",
+                    "match": "([0-9]|[0-9][_0-9]*[0-9])\\.([0-9]|[0-9][_0-9]*[0-9])([eE][+-]?[0-9]+)?"
+                },
+                {
+                    "comment": "decimal integer literals",
+                    "name": "constant.numeric.x",
+                    "match": "([0-9]|[0-9][_0-9]*[0-9])"
+                },
+                {
+                    "include": "#strings"
+                }
+            ]
+        },
+        "strings": {
+            "name": "string.quoted.double.x",
+            "begin": "\"",
+            "end": "\"",
+            "patterns": [
+                {
+                    "name": "constant.character.escape.x",
+                    "match": "\\\\[0'\"?\\abfnrtv]"
+                },
+                {
+                    "contentName": "source.x",
+                    "name": "meta.embedded.line.x",
+                    "begin": "\\\\\\(",
+                    "end": "(\\))",
+                    "beginCaptures": {
+                        "0": {
+                            "name": "punctuation.section.embedded.begin.x"
+                        }
+                    },
+                    "endCaptures": {
+                        "0": {
+                            "name": "punctuation.section.embedded.end.x"
+                        },
+                        "1": {
+                            "name": "source.x"
+                        }
+                    },
+                    "patterns": [
+                        {
+                            "include": "$self"
+                        },
+                        {
+                            "comment": "Nested parens",
+                            "begin": "\\(",
+                            "end": "\\)"
+                        }
+                    ]
+                },
+                {
+                    "name": "illegal.unknown-escape.x",
+                    "match": "\\\\."
+                }
+            ]
+        }
+    },
+    "scopeName": "source.x"
 }

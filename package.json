@@ -13,7 +13,7 @@
     "languages": [{
       "id": "x",
       "aliases": ["X", "x"],
-      "extensions": [".x .xs .xd"],
+      "extensions": [".x",".xs",".xd"],
       "configuration": "./language-configuration.json"
     }],
     "grammars": [{
