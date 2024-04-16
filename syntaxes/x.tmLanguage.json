@@ -30,7 +30,7 @@
             "patterns": [
                 {
                     "name": "keyword.control.x",
-                    "match": "\\b(if|match|while|for|break|continue|return|throw)\\b"
+                    "match": "\\b(if|then|else|match|while|for|break|continue|return|throw)\\b"
                 },
                 {
                     "name": "storage.type.x",
@@ -47,6 +47,10 @@
                 {
                     "name": "keyword.operator.x",
                     "match": "\\b(as|is|in|shl|shl_eq|shr|shr_eq|cmp)\\b"
+                },
+                {
+                    "name": "keyword.operator.x",
+                    "match": "[-~!#%^&*|+=/?<>.'+]+"
                 },
                 {
                     "name": "variable.language.x",
@@ -82,7 +86,7 @@
         "strings": {
             "name": "string.quoted.double.x",
             "begin": "\"",
-            "end": "\"",
+            "end": "\"(?:_?[\\p{XID_Start}][\\p{XID_Continue}]*)?",
             "patterns": [
                 {
                     "name": "constant.character.escape.x",
