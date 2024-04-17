@@ -34,7 +34,7 @@
                 },
                 {
                     "name": "storage.type.x",
-                    "match": "\\b(void|never|bool|int|uint|float|string|symbol|self)\\b"
+                    "match": "\\b(void|never|bool|int|uint|float|string|symbol|self|mut)\\b"
                 },
                 {
                     "name": "storage.type.x",
@@ -42,7 +42,7 @@
                 },
                 {
                     "name": "storage.modifier.x",
-                    "match": "\\b(public|private|static|const|partial)\\b"
+                    "match": "\\b(public|internal|private|static|const|partial)\\b"
                 },
                 {
                     "name": "keyword.operator.x",
@@ -62,7 +62,7 @@
                 },
                 {
                     "name": "keyword.other.x",
-                    "match": "\\b(let|operator|import|__[a-z]+)\\b"
+                    "match": "\\b(let|operator|import|__[a-z]+|\\\\[|\\\\]|[(){}:;,])\\b"
                 }
             ]
         },
