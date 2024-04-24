@@ -34,7 +34,7 @@
                 },
                 {
                     "name": "storage.type.x",
-                    "match": "\\b(void|never|bool|int|uint|float|string|symbol|self|mut)\\b"
+                    "match": "\\b(void|never|bool|int|uint|float|string|symbol|self|mut|any|some)\\b"
                 },
                 {
                     "name": "storage.type.x",
@@ -42,7 +42,7 @@
                 },
                 {
                     "name": "storage.modifier.x",
-                    "match": "\\b(public|internal|private|static|const|partial)\\b"
+                    "match": "\\b(public|internal|private|static|const|partial|lazy)\\b"
                 },
                 {
                     "name": "keyword.operator.x",
@@ -61,8 +61,19 @@
                     "match": "\\b(init|deinit|get|set|willSet|didSet)\\b"
                 },
                 {
+                    "match": "\\b(?:(operator)(?: (prefix|suffix|infix))?)\\b",
+                    "captures": {
+                        "1": {
+                            "name": "keyword.other.x"
+                        },
+                        "2": {
+                            "name": "keyword.other.x"
+                        }
+                    }
+                },
+                {
                     "name": "keyword.other.x",
-                    "match": "\\b(let|operator|import|__[a-z]+|\\\\[|\\\\]|[(){}:;,])\\b"
+                    "match": "\\b(let|import|dyn|infer|__[a-z]+|\\\\[|\\\\]|[(){}:;,])\\b"
                 }
             ]
         },
