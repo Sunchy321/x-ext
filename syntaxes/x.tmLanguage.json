@@ -46,7 +46,7 @@
                 },
                 {
                     "name": "storage.type.x",
-                    "match": "\\b(void|never|bool|int|uint|float|string|symbol|self|mut|any|some)\\b"
+                    "match": "\\b(void|never|bool|int|uint|float|string|char|self|mut|any|some)\\b"
                 },
                 {
                     "name": "storage.type.x",
