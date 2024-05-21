@@ -54,7 +54,7 @@
                 },
                 {
                     "name": "storage.modifier.x",
-                    "match": "\\b(public|internal|private|static|const|partial|lazy)\\b"
+                    "match": "\\b(public|internal|private|static|const|partial|lazy|ref)\\b"
                 },
                 {
                     "name": "keyword.operator.x",
