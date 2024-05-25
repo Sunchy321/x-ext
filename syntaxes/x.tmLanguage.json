@@ -38,7 +38,7 @@
             "patterns": [
                 {
                     "name": "keyword.control.x",
-                    "match": "\\b(if|then|else|match|while|for|break|continue|return)\\b"
+                    "match": "\\bdo\\w*!|\\b(if|then|else|match|while|for|break|continue|return|do)\\b"
                 },
                 {
                     "name": "keyword.control.exception.swift",
@@ -66,7 +66,7 @@
                 },
                 {
                     "name": "variable.language.x",
-                    "match": "\\b(this)\\b"
+                    "match": "\\b(this|$([0-9]+|[\\p{XID_Start}][\\p{XID_Continue}]*)?)\\b"
                 },
                 {
                     "name": "storage.type.function.x",
@@ -85,7 +85,7 @@
                 },
                 {
                     "name": "keyword.other.x",
-                    "match": "\\b(let|import|dyn|infer|__[a-z]+|\\\\[|\\\\]|[(){}:;,])\\b"
+                    "match": "\\b(let|import|dyn|infer|__[a-z]+|\\[|\\]|[(){}:;,])\\b"
                 }
             ]
         },
