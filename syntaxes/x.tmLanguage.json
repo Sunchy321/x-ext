@@ -14,10 +14,32 @@
                     "include": "#comments"
                 },
                 {
+                    "include": "#import-decls"
+                },
+                {
                     "include": "#keywords"
                 },
                 {
                     "include": "#constants"
+                }
+            ]
+        },
+        "import-decls": {
+            "begin": "(import)\\s+",
+            "end": ";",
+            "beginCaptures": {
+                "1": {
+                    "name": "keyword.other.x"
+                }
+            },
+            "patterns": [
+                {
+                    "match": "\\b(root|this)\\b",
+                    "captures": {
+                        "1": {
+                            "name": "keyword.other.x"
+                        }
+                    }
                 }
             ]
         },
@@ -46,7 +68,7 @@
                 },
                 {
                     "name": "storage.type.x",
-                    "match": "\\b(void|never|bool|int|uint|float|string|char|self|mut|any|some)\\b"
+                    "match": "\\b(void|never|bool|int|uint|isize|usize|float|string|char|self|mut|any)\\b"
                 },
                 {
                     "name": "storage.type.x",
@@ -54,11 +76,11 @@
                 },
                 {
                     "name": "storage.modifier.x",
-                    "match": "\\b(public|internal|private|static|const|partial|lazy|ref)\\b"
+                    "match": "\\b(public|internal|private|static|const|partial|lazy|ref|auto)\\b"
                 },
                 {
                     "name": "keyword.operator.x",
-                    "match": "\\b(as|is|in|shl|shl_eq|shr|shr_eq|cmp)\\b"
+                    "match": "\\b(some|as|is|in|shl|shl_eq|shr|shr_eq|cmp)\\b"
                 },
                 {
                     "name": "keyword.operator.x",
@@ -85,7 +107,7 @@
                 },
                 {
                     "name": "keyword.other.x",
-                    "match": "\\b(let|import|dyn|infer|__[a-z]+|\\[|\\]|[(){}:;,])\\b"
+                    "match": "\\b(let|import|module|macro|dyn|infer|__[a-z]+|\\[|\\]|[(){}:;,])\\b"
                 }
             ]
         },
