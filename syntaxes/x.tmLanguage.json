@@ -20,6 +20,9 @@
                     "include": "#keywords"
                 },
                 {
+                    "include": "#identifiers"
+                },
+                {
                     "include": "#constants"
                 }
             ]
@@ -108,6 +111,14 @@
                 {
                     "name": "keyword.other.x",
                     "match": "\\b(let|import|module|macro|dyn|infer|__[a-z]+|\\[|\\]|[(){}:;,])\\b"
+                }
+            ]
+        },
+        "identifiers": {
+            "patterns": [
+                {
+                    "name": "variable.x",
+                    "match": "\\b([\\p{XID_Start}][\\p{XID_Continue}]*)\\b"
                 }
             ]
         },
