@@ -95,7 +95,7 @@
                 },
                 {
                     "name": "storage.type.function.x",
-                    "match": "\\b(init|deinit|get|set|willSet|didSet)\\b"
+                    "match": "\\b(init|get|set|willSet|didSet)\\b"
                 },
                 {
                     "match": "\\b(?:(operator)(?: (prefix|suffix|infix))?)\\b",
