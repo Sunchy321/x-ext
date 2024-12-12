@@ -71,7 +71,7 @@
                 },
                 {
                     "name": "storage.type.x",
-                     "match": "\\b(void|never|bool|int|uint|isize|usize|float|string|char|self|mut|once)\\b"
+                     "match": "\\b(auto|void|never|bool|int|uint|isize|usize|float|string|char|self|mut|once)\\b"
                 },
                 {
                     "name": "storage.type.x",
@@ -79,7 +79,7 @@
                 },
                 {
                     "name": "storage.modifier.x",
-                    "match": "\\b(public|internal|private|static|const|partial|lazy|ref|auto)\\b"
+                    "match": "\\b(public|internal|private|static|const|partial|lazy|ref|unsafe)\\b"
                 },
                 {
                     "name": "keyword.operator.x",
@@ -110,7 +110,7 @@
                 },
                 {
                     "name": "keyword.other.x",
-                    "match": "\\b(let|import|module|macro|dyn|infer|__[a-z]+|\\[|\\]|[(){}:;,])\\b"
+                    "match": "\\b(let|import|module|macro|where|dyn|infer|__[a-z]+|\\[|\\]|[(){}:;,])\\b"
                 }
             ]
         },
