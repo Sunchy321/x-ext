@@ -1,8 +1,8 @@
 {
   "name": "xlang",
   "displayName": "xlang",
-  "description": "X language support",
-  "version": "0.0.1",
+  "description": "X language syntax highlighting",
+  "version": "0.0.2",
   "engines": {
     "vscode": "^1.88.0"
   },

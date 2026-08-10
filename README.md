@@ -1,65 +1,49 @@
-# xlang README
+# xlang — X language syntax highlighting
 
-This is the README for your extension "xlang". After writing up a brief description, we recommend including the following sections.
+Provides VS Code syntax highlighting for the X language (TextMate grammar, `source.x`). Supports `.x`, `.xs`, `.xd` files.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+- Keywords, types, and modifiers highlighted (kept in sync with the spec, incl. `linear`, `defer`, etc.)
+- Literals: integer / float / string / char / boolean / name literals `\name`
+- Lifetimes `'a` / `'_` and reference types `T 'a &`
+- Comments, operators, string interpolation `\(e)`, loop labels `'label`
 
-For example if there is an image subfolder under your extension project workspace:
+## Install
 
-\!\[feature X\]\(images/feature-x.png\)
+This is a local extension, not published to the VS Code Marketplace. Choose one:
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+### Option 1: Package as VSIX (recommended)
 
-## Requirements
+```sh
+cd ext
+npx @vscode/vsce package        # produces xlang-0.0.2.vsix
+```
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+Then in VS Code: Extensions panel → `...` menu → **Install from VSIX…** → select the generated `.vsix`. Reload the window.
 
-## Extension Settings
+### Option 2: Development mode
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+Open the `ext` folder in VS Code and press `F5` to launch an Extension Development Host window; open a `.x` file there to see the highlighting.
 
-For example:
+### Option 3: Manual copy
 
-This extension contributes the following settings:
+Copy the `ext` folder to your extensions directory and rename it:
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+```sh
+cp -r ext ~/.vscode/extensions/xlang
+```
 
-## Known Issues
+Restart VS Code. Extensions directory location:
+- macOS / Linux: `~/.vscode/extensions/`
+- Windows: `%USERPROFILE%\.vscode\extensions\`
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+## Development notes
 
-## Release Notes
+- Grammar file: `syntaxes/x.tmLanguage.json` (TextMate grammar, kept in sync with the `docs/` spec)
+- Language configuration: `language-configuration.json` (comments, bracket pairing)
+- Run `vsce package` before shipping to validate the grammar JSON.
 
-Users appreciate release notes as you update your extension.
+## Changelog
 
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+See [CHANGELOG.md](CHANGELOG.md).

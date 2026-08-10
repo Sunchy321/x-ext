@@ -63,7 +63,7 @@
             "patterns": [
                 {
                     "name": "keyword.control.x",
-                    "match": "\\bdo\\w*!|\\b(if|then|else|match|while|for|break|continue|return|do)\\b"
+                    "match": "\\bdo\\w*!|\\b(if|then|else|match|while|for|break|continue|return|do|defer)\\b"
                 },
                 {
                     "name": "keyword.control.exception.swift",
@@ -71,7 +71,7 @@
                 },
                 {
                     "name": "storage.type.x",
-                     "match": "\\b(auto|void|never|bool|int|uint|isize|usize|float|string|char|self|mut|once)\\b"
+                     "match": "\\b(void|never|bool|int|uint|isize|usize|float|string|char|self|mut|once|any)\\b"
                 },
                 {
                     "name": "storage.type.x",
@@ -79,11 +79,11 @@
                 },
                 {
                     "name": "storage.modifier.x",
-                    "match": "\\b(public|internal|private|static|const|partial|lazy|ref|unsafe)\\b"
+                    "match": "\\b(public|internal|private|static|const|partial|lazy|ref|unsafe|async|linear)\\b"
                 },
                 {
                     "name": "keyword.operator.x",
-                    "match": "\\b(some|as|is|in|shl|shl_eq|shr|shr_eq|cmp)\\b"
+                    "match": "\\b(some|as|is|in|shl|shl_eq|shr|shr_eq|cmp|and|or|xor|and_eq|or_eq|xor_eq|compl|typeof|await)\\b"
                 },
                 {
                     "name": "keyword.operator.x",
@@ -110,7 +110,7 @@
                 },
                 {
                     "name": "keyword.other.x",
-                    "match": "\\b(let|import|module|macro|where|dyn|infer|__[a-z]+|\\[|\\]|[(){}:;,])\\b"
+                    "match": "\\b(let|import|module|macro|dyn|__[a-z]+|\\[|\\]|[(){}:;,])\\b"
                 }
             ]
         },
@@ -148,6 +148,11 @@
                 },
                 {
                     "include": "#char-symbols"
+                },
+                {
+                    "comment": "name literals \\name",
+                    "name": "constant.symbol.x",
+                    "match": "\\\\[\\p{XID_Start}][\\p{XID_Continue}]*"
                 }
             ]
         },
@@ -202,8 +207,8 @@
                     "match": "'(?:\\\\u\\{[^}]*\\}|\\\\.|.)'"
                 },
                 {
-                    "name": "constant.symbol.x",
-                    "match": "'[\\p{XID_Start}][\\p{XID_Continue}]*"
+                    "name": "storage.type.lifetime.x",
+                    "match": "'(?:_|[\\p{XID_Start}][\\p{XID_Continue}]*)"
                 },
                 {
                     "name": "keyword.operator.x",
