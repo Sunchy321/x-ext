@@ -1,13 +1,15 @@
-# Change Log
+# Changelog
 
-All notable changes to the "xlang" extension will be documented in this file.
+## 0.0.4
 
-## [0.0.2] - 2026-08-11
+- Syntax-highlight inferred types in hover cards and highlight the matching source expression.
 
-- Sync keywords with the spec: add `linear`, `defer`, `any`, `async`, `await`, `and`/`or`/`xor`/`and_eq`/`or_eq`/`xor_eq`/`compl`/`typeof`; remove `auto`, `infer`, `where`
-- Replace symbol-literal highlighting with lifetime highlighting (`'a`, `'_`) and name literals (`\name`)
-- Support `T 'a &` reference-type syntax
+## 0.0.3
 
-## [0.0.1] - 2024-04-26
+- Add a Rust language server for live parser and type diagnostics.
+- Show inferred types when hovering over expressions the checker can resolve.
+- Add local VSIX packaging and the `xlang.serverPath` override.
 
-- Initial release
+## 0.0.2
+
+- Add X language registration, language configuration, and TextMate syntax highlighting.

@@ -1,6 +1,11 @@
 node_modules
 *.vsix
+server/
+out/
 
-.vscode/
+.vscode/*
+!.vscode/
+!.vscode/launch.json
+!.vscode/tasks.json
 
 .DS_Store

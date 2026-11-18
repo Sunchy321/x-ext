@@ -1,0 +1,49 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "x: build language server",
+      "type": "process",
+      "command": "cargo",
+      "args": [
+        "build",
+        "--manifest-path",
+        "${workspaceFolder}/../xc/Cargo.toml",
+        "-p",
+        "x-language-server"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": "$rustc"
+    },
+    {
+      "label": "x: bundle extension client",
+      "type": "process",
+      "command": "pnpm",
+      "args": [
+        "exec",
+        "esbuild",
+        "extension.js",
+        "--bundle",
+        "--platform=node",
+        "--format=cjs",
+        "--external:vscode",
+        "--outfile=out/extension.js"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "x: prepare extension host",
+      "dependsOn": [
+        "x: bundle extension client",
+        "x: build language server"
+      ],
+      "dependsOrder": "sequence",
+      "problemMatcher": []
+    }
+  ]
+}

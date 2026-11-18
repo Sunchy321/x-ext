@@ -1,15 +1,32 @@
 {
   "name": "xlang",
   "displayName": "xlang",
-  "description": "X language syntax highlighting",
-  "version": "0.0.2",
+  "description": "X language syntax highlighting, diagnostics, and inferred type hovers",
+  "version": "0.0.4",
+  "publisher": "xlang",
+  "main": "./out/extension.js",
   "engines": {
     "vscode": "^1.88.0"
+  },
+  "activationEvents": ["onLanguage:x"],
+  "scripts": {
+    "compile": "esbuild extension.js --bundle --platform=node --format=cjs --external:vscode --outfile=out/extension.js",
+    "package-local": "node package-local.mjs"
   },
   "categories": [
     "Programming Languages"
   ],
   "contributes": {
+    "configuration": {
+      "title": "X Language Server",
+      "properties": {
+        "xlang.serverPath": {
+          "type": "string",
+          "default": "",
+          "description": "Path to the x-language-server executable. Relative paths are resolved from the current workspace."
+        }
+      }
+    },
     "languages": [{
       "id": "x",
       "aliases": ["X", "x"],
@@ -21,5 +38,10 @@
       "scopeName": "source.x",
       "path": "./syntaxes/x.tmLanguage.json"
     }]
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.1",
+    "vscode-languageclient": "9.0.1",
+    "@vscode/vsce": "^3.2.2"
   }
 }

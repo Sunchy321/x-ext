@@ -2,3 +2,9 @@
 .vscode-test/**
 .gitignore
 vsc-extension-quickstart.md
+extension.js
+package-local.mjs
+pnpm-lock.yaml
+test.x
+sample/**
+!server/**
